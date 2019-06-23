@@ -13,15 +13,19 @@ npm install --save react-here-autocomplete
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import MyComponent from 'react-here-autocomplete'
+import AutoCompleteText from "react-here-autocomplete";
 
 class Example extends Component {
-  render () {
+  render() {
     return (
-      <MyComponent />
-    )
+      <AutoCompleteText
+        placeholder="Start Typing Places!"
+        appid="YOUR_APP_ID"
+        appcode="YOUR_APP_CODE"
+      />
+    );
   }
 }
 ```
