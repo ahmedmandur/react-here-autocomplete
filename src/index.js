@@ -21,7 +21,7 @@ export default class AutoCompleteText extends Component {
 
   onTextChanged = e => {
     const value = e.target.value;
-    this.setState({ locationId: "" });
+    this.setState({ locationId: "", text: value });
 
     if (value.length > 0) {
       this.setState({ text: value });
@@ -73,21 +73,6 @@ export default class AutoCompleteText extends Component {
   };
 
   suggestionSelected = item => {
-    fetch(
-      `http://geocoder.api.here.com/6.2/geocode.json?locationid=${
-        item.locationId
-      }&jsonattributes=1&gen=9&app_id=${this.props.appid}&app_code=${
-        this.props.appcode
-      }`
-    )
-      .then(response => response.json())
-      .then(data => {
-        console.log(data.response.view);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-
     this.setState({
       text: item.label,
       locationId: item.locationId,
